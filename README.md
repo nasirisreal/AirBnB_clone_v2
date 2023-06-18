@@ -1,10 +1,15 @@
-<center> <h1>HBNB - The Console</h1> </center>
+<center> <h1>0x02. AirBnB Clone - MySQL project</h1> </center>
+------------
 
-This repository contains the initial stage of a student project to build a clone of the AirBnB website. This stage implements a backend interface, or console, to manage program data. Console commands allow the user to create, update, and destroy objects, as well as manage file storage. Using a system of JSON serialization/deserialization, storage is persistent between sessions.
+Welcome to our __0x02. AirBnB Clone - MySQL project__ repository! This project is part of the curriculum at __ALX__ and aims to build a full-stack web application inspired by __AirBnB__ using MySQL as the database.
+
+This stage implements a backend interface, or console, to manage program data. Console commands allow the user to create, update, and destroy objects, as well as manage file storage. Using a system of JSON serialization/deserialization, storage is persistent between sessions.
+
+The main goal of the project is to implement the fundamental functionalities of the AirBnB website, such as managing user authentication, creating and booking listings, handling user reviews, and more.
 
 ---
 
-<center><h3>Repository Contents by Project Task</h3> </center>
+<center><h3>Repository Contents by Project Task :briefcase:</h3> </center>
 
 | Tasks | Files | Description |
 | ----- | ----- | ------ |
