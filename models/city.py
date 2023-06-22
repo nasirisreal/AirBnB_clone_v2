@@ -1,34 +1,24 @@
 #!/usr/bin/python3
-"""This module defines a class User"""
-import os
-from sqlalchemy import Column, String
+"""Defines the City class."""
+from models.base_model import Base
+from models.base_model import BaseModel
+from sqlalchemy import Column
+from sqlalchemy import ForeignKey
+from sqlalchemy import String
 from sqlalchemy.orm import relationship
 
-from models.base_model import BaseModel, Base
 
+class City(BaseModel, Base):
+    """Represents a city for a MySQL database.
 
-class User(BaseModel, Base):
-    """This class defines a user by various attributes"""
-    __tablename__ = 'users'
-    email = Column(
-        String(128), nullable=False
-    ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
-    password = Column(
-        String(128), nullable=False
-    ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
-    first_name = Column(
-        String(128), nullable=True
-    ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
-    last_name = Column(
-        String(128), nullable=True
-    ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else ''
-    places = relationship(
-        'Place',
-        cascade="all, delete, delete-orphan",
-        backref='user'
-    ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else None
-    reviews = relationship(
-        'Review',
-        cascade="all, delete, delete-orphan",
-        backref='user'
-    ) if os.getenv('HBNB_TYPE_STORAGE') == 'db' else None
+    Inherits from SQLAlchemy Base and links to the MySQL table cities.
+
+    Attributes:
+        __tablename__ (str): The name of the MySQL table to store Cities.
+        name (sqlalchemy String): The name of the City.
+        state_id (sqlalchemy String): The state id of the City.
+    """
+    __tablename__ = "cities"
+    name = Column(String(128), nullable=False)
+    state_id = Column(String(60), ForeignKey("states.id"), nullable=False)
+    places = relationship("Place", backref="cities", cascade="delete")
