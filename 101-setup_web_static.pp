@@ -11,7 +11,7 @@ $nginx_conf = "server {
         index index.html index.htm;
     }
     location /redirect_me {
-        return 301;
+        return 301 https://hbibidunni.com/;
     }
     error_page 404 /404.html;
     location /404 {
